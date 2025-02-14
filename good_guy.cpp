@@ -2,7 +2,6 @@
 #include <iostream>
 
 void good_guy::initialize() {
-    score = 0;
     currentState = true;
 }
 

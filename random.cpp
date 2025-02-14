@@ -2,7 +2,7 @@
 #include <iostream>
 
 void random::initialize() {
-    score = 0;
+    currentState = true;
 }
 
 void random::nextState() {
