@@ -3,22 +3,26 @@
 
 #include "tit_for_tat.h"
 #include "good_guy.h"
+#include "random.h"
 
 int main() {
     // define class
     tit_for_tat tit_for_tat;
     good_guy good_guy;
+    random random;
 
     // initialize all variables
     tit_for_tat.initialize();
     good_guy.initialize();
+    random.initialize();
 
     // call the 2 functions 
-    tit_for_tat.nextState(tit_for_tat.opponentPreviousState);
-    good_guy.nextState();
+    random.nextState();
 
     // running the simulation
-    for (int i = 0;i < 1;i++) {
+    for (int i = 0;i < 10;i++) {
+        tit_for_tat.nextState(tit_for_tat.opponentPreviousState);
+        good_guy.nextState();
         if (tit_for_tat.currentState == true && good_guy.currentState == false) {
             tit_for_tat.score += 3;
         }
@@ -33,6 +37,6 @@ int main() {
             tit_for_tat.score += 2;
             good_guy.score += 2;
         }
+        std::cout << tit_for_tat.score << " " << good_guy.score << std::endl;
     }
-    std::cout << tit_for_tat.score << " " << good_guy.score << std::endl;
 }
