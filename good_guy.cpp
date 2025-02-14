@@ -3,6 +3,7 @@
 
 void good_guy::initialize() {
     score = 0;
+    currentState = true;
 }
 
 void good_guy::nextState() {

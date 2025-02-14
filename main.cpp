@@ -6,6 +6,7 @@
 #include "random.h"
 
 int main() {
+    srand(time(0));
     // define class
     tit_for_tat tit_for_tat;
     good_guy good_guy;
@@ -19,24 +20,33 @@ int main() {
     // call the 2 functions 
     random.nextState();
 
+    bool player1Move;
+    bool player2Move;
+    int player1Score = 0;
+    int player2Score = 0;
+
     // running the simulation
-    for (int i = 0;i < 10;i++) {
-        tit_for_tat.nextState(tit_for_tat.opponentPreviousState);
-        good_guy.nextState();
-        if (tit_for_tat.currentState == true && good_guy.currentState == false) {
-            tit_for_tat.score += 3;
+    for (int i = 0;i < 100;i++) {
+        player1Move = tit_for_tat.currentState;
+        // player2Move = good_guy.currentState;
+        player2Move = random.currentState;
+        if (player1Move == true && player2Move == false) {
+            player2Score += 3;
         }
-        else if (tit_for_tat.currentState == false && good_guy.currentState == true) {
-            good_guy.score += 3;
+        else if (player1Move == false && player2Move == true) {
+            player1Score += 3;
         }
-        else if (tit_for_tat.currentState == false && good_guy.currentState == false) {
-            tit_for_tat.score++;
-            good_guy.score++;
+        else if (player1Move == false && player2Move == false) {
+            player1Score++;
+            player2Score++;
         }
-        else if (tit_for_tat.currentState == true && good_guy.currentState == true) {
-            tit_for_tat.score += 2;
-            good_guy.score += 2;
+        else if (player1Move == true && player2Move == true) {
+            player1Score += 2;
+            player2Score += 2;
         }
-        std::cout << tit_for_tat.score << " " << good_guy.score << std::endl;
+        tit_for_tat.nextState(player2Move);
+        // good_guy.nextState();
+        random.nextState();
+        std::cout << player1Score << " " << player2Score << std::endl;
     }
 }
