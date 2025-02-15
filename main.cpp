@@ -36,22 +36,27 @@ int main() {
         player2Move = FirstByDavis.currentState;
         if (player1Move == true && player2Move == false) {
             player2Score += 5;
+            std::cout << 1 << " " << 5 << std::endl;
         }
         else if (player1Move == false && player2Move == true) {
             player1Score += 5;
+            std::cout << 5 << " " << 1 << std::endl;
         }
         else if (player1Move == false && player2Move == false) {
             player1Score++;
             player2Score++;
+            std::cout << 1 << " " << 1 << std::endl;
         }
         else if (player1Move == true && player2Move == true) {
             player1Score += 3;
             player2Score += 3;
+            std::cout << 3 << " " << 3 << std::endl;
         }
         tit_for_tat.nextState(player2Move);
         // good_guy.nextState();
         // random.nextState();
         FirstByDavis.nextState(player1Move);
         std::cout << player1Score << " " << player2Score << std::endl;
+        std::cout << "----------------------" << std::endl;
     }
 }
