@@ -1,12 +1,12 @@
-#include "FirstByDavis.h"
+#include "davis.h"
 #include <iostream>
 
-void FirstByDavis::initialize() {
+void davis::initialize() {
     stepCount = 0;
     currentState = true;
 }
 
-void FirstByDavis::nextState(bool opponentPreviousState) {
+void davis::nextState(bool opponentPreviousState) {
     stepCount++;
     if (stepCount < 10) {
         currentState = true;

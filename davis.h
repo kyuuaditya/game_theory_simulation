@@ -1,6 +1,6 @@
 #pragma once
 
-class FirstByDavis {
+class davis {
 
 public:
     bool currentState;
